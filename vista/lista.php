@@ -136,7 +136,7 @@
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
-                <?php if ($value['rgt_meta_estado']  == "") : ?>
+                <?php if ($value['rgt_meta_estado']  == 2) : ?>
                     <div class="btn-group">
                         <button class="btn btn-sm btn-success btnMetaCumplida" rgt_id="<?php echo $value['rgt_id'] ?>">Cumplida</button>
                         <button class="btn btn-sm btn-danger btnMetaNoCumplida " rgt_id=<?php echo $value['rgt_id'] ?>">No cumplida</button>
