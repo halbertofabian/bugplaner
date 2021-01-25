@@ -90,7 +90,7 @@ class RegistrModelo
     {
         try {
             //code...
-            $sql = "SELECT * FROM tbl_time_line WHERE line_registro = ? ";
+            $sql = "SELECT * FROM tbl_time_line WHERE line_registro = ? ORDER BY line_fecha_registro desc";
             $con = Conexion::conectar();
             $pps = $con->prepare($sql);
             $pps->bindValue(1, $rgt_id);
