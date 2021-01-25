@@ -18,6 +18,19 @@ class RegistroAjax
 
         echo json_encode($res, true);
     }
+
+    public function ajaxMetaCumplida()
+    {
+        $res = RegistrModelo::mdlMetaCumplida($this->rgt_id);
+
+        echo json_encode($res, true);
+    }
+    public function ajaxMetaNoCumplida()
+    {
+        $res = RegistrModelo::mdlMetaNoCumplida($_POST);
+
+        echo json_encode($res, true);
+    }
 }
 if (isset($_POST['btnregistro'])) {
 
@@ -30,4 +43,17 @@ if (isset($_POST['btnEliminarRegistro'])) {
     $registro = new RegistroAjax();
     $registro->rgt_id = $_POST['rgt_id'];
     $registro->ajaxEliminarRegistro();
+}
+
+if (isset($_POST['btnMetaCumplida'])) {
+
+    $registro = new RegistroAjax();
+    $registro->rgt_id = $_POST['rgt_id'];
+    $registro->ajaxMetaCumplida();
+}
+
+if (isset($_POST['btnMetaNoCumplida'])) {
+
+    $registro = new RegistroAjax();
+    $registro->ajaxMetaNoCumplida();
 }

@@ -42,7 +42,26 @@
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
 
-                <button class="btn btn-sm btn-outline-danger float-right mb-4 btnEliminarRegistro" rgt_id="<?php echo $value['rgt_id'] ?>"><i class="fa fa-times"></i></button>
+                <?php if ($value['rgt_meta_estado']  == "") : ?>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-success btnMetaCumplida" rgt_id="<?php echo $value['rgt_id'] ?>">Cumplida</button>
+                        <button class="btn btn-sm btn-danger btnMetaNoCumplida " rgt_id=<?php echo $value['rgt_id'] ?>">No cumplida</button>
+                    </div>
+                <?php endif; ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php if ($value['rgt_meta_estado'] == 1) : ?>
+                            <strong class="text-success">Meta cumplida</strong> <br>
+                            <strong class=""> <?php echo fechaCastellano($value['rgt_fecha_actu']) ?> </strong>
+                        <?php endif; ?>
+                        <?php if ($value['rgt_meta_estado'] == 0) : ?>
+                            <strong class="text-danger">Meta no cumplida</strong> <br>
+                            <strong class=""> <?php echo $value['rgt_nota'] ?> </strong>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <button class=" btn btn-sm btn-outline-danger float-right mb-4 btnEliminarRegistro" rgt_id="<?php echo $value['rgt_id'] ?>"><i class="fa fa-times"></i></button>
                 <br>
                 <br>
             </div>
@@ -56,6 +75,24 @@
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
+                <?php if ($value['rgt_meta_estado']  == "") : ?>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-success btnMetaCumplida" rgt_id="<?php echo $value['rgt_id'] ?>">Cumplida</button>
+                        <button class="btn btn-sm btn-danger btnMetaNoCumplida " rgt_id=<?php echo $value['rgt_id'] ?>">No cumplida</button>
+                    </div>
+                <?php endif; ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php if ($value['rgt_meta_estado'] == 1) : ?>
+                            <strong class="text-success">Meta cumplida</strong> <br>
+                            <strong class=""> <?php echo fechaCastellano($value['rgt_fecha_actu']) ?> </strong>
+                        <?php endif; ?>
+                        <?php if ($value['rgt_meta_estado'] == 0) : ?>
+                            <strong class="text-danger">Meta no cumplida</strong> <br>
+                            <strong class=""> <?php echo $value['rgt_nota'] ?> </strong>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <button class="btn btn-sm btn-outline-danger float-right mb-4 btnEliminarRegistro" rgt_id="<?php echo $value['rgt_id'] ?>"><i class="fa fa-times"></i></button>
                 <br>
                 <br>
@@ -69,6 +106,24 @@
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
+                <?php if ($value['rgt_meta_estado']  == "") : ?>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-success btnMetaCumplida" rgt_id="<?php echo $value['rgt_id'] ?>">Cumplida</button>
+                        <button class="btn btn-sm btn-danger btnMetaNoCumplida " rgt_id=<?php echo $value['rgt_id'] ?>">No cumplida</button>
+                    </div>
+                <?php endif; ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php if ($value['rgt_meta_estado'] == 1) : ?>
+                            <strong class="text-success">Meta cumplida</strong> <br>
+                            <strong class=""> <?php echo fechaCastellano($value['rgt_fecha_actu']) ?> </strong>
+                        <?php endif; ?>
+                        <?php if ($value['rgt_meta_estado'] == 0) : ?>
+                            <strong class="text-danger">Meta no cumplida</strong> <br>
+                            <strong class=""> <?php echo $value['rgt_nota'] ?> </strong>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <button class="btn btn-sm btn-outline-danger float-right mb-4 btnEliminarRegistro" rgt_id="<?php echo $value['rgt_id'] ?>"><i class="fa fa-times"></i></button>
                 <br>
                 <br>
@@ -81,6 +136,24 @@
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
+                <?php if ($value['rgt_meta_estado']  == "") : ?>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-success btnMetaCumplida" rgt_id="<?php echo $value['rgt_id'] ?>">Cumplida</button>
+                        <button class="btn btn-sm btn-danger btnMetaNoCumplida " rgt_id=<?php echo $value['rgt_id'] ?>">No cumplida</button>
+                    </div>
+                <?php endif; ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php if ($value['rgt_meta_estado'] == 1) : ?>
+                            <strong class="text-success">Meta cumplida</strong> <br>
+                            <strong class=""> <?php echo fechaCastellano($value['rgt_fecha_actu']) ?> </strong>
+                        <?php endif; ?>
+                        <?php if ($value['rgt_meta_estado'] == 0) : ?>
+                            <strong class="text-danger">Meta no cumplida</strong> <br>
+                            <strong class=""> <?php echo $value['rgt_nota'] ?> </strong>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <button class="btn btn-sm btn-outline-danger float-right mb-4 btnEliminarRegistro" rgt_id="<?php echo $value['rgt_id'] ?>"><i class="fa fa-times"></i></button>
                 <br>
                 <br>

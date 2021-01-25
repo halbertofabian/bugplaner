@@ -297,8 +297,112 @@ require_once 'controlador/usuarios.controlador.php';
         <script src="<?php echo HTTP_HOST  ?>assets/js/demo.js"></script>
 
 
-    <script src="<?php echo HTTP_HOST  ?>assets/js/plugin/summernote-2/summernote-lite.min.js"></script>
+        <script src="<?php echo HTTP_HOST  ?>assets/js/plugin/summernote-2/summernote-lite.min.js"></script>
 
+        <script>
+            $(".btnMetaCumplida").on("click", function() {
+                var rgt_id = $(this).attr("rgt_id")
+
+                var datos = new FormData()
+
+                datos.append('rgt_id', rgt_id)
+                datos.append('rgt_meta_estado', 1)
+                datos.append('btnMetaCumplida', true)
+
+                $.ajax({
+
+                    url: './ajax/ajax.registro.php',
+                    method: "POST",
+                    data: datos,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    dataType: "json",
+                    beforeSend: function() {},
+                    success: function(res) {
+                        if (res) {
+                            toastr.success('Felicidades meta cumplida', 'Muy bien!')
+
+                            setTimeout(function() {
+                                location.href = './lista'
+                            }, 1000);
+                        } else {
+                            toastr.error('Intenta de nuevo', '¡Error!')
+
+                        }
+                    },
+                })
+            })
+
+            $(".btnMetaNoCumplida").on("click", function() {
+                var rgt_id = $(this).attr("rgt_id");
+                swal({
+                        title: "¿Estás seguro de no continuar con la meta?",
+                        text: "Tomate tu tiempo...",
+                        icon: "warning",
+                        buttons: ['No, cancelar', 'Si, no cumplir meta'],
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal(" Escribe el motivo por el cual no terminarás esta meta", {
+                                    content: "input",
+                                })
+                                .then((value) => {
+                                    if (value != "") {
+
+                                        var rgt_nota = value;
+
+                                        var datos = new FormData();
+
+                                        datos.append("rgt_id", rgt_id);
+                                        datos.append("rgt_nota", rgt_nota);
+                                        datos.append("btnMetaNoCumplida", true);
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: './ajax/ajax.registro.php',
+                                            data: datos,
+                                            cache: false,
+                                            dataType: "json",
+                                            processData: false,
+                                            contentType: false,
+                                            beforeSend: function() {
+
+                                            },
+                                            success: function(res) {
+
+                                                if (res) {
+
+
+                                                    toastr.success('Meta abandonada. Recuerda nunca es tarde para volver ', '¡Muy bien!')
+
+                                                    setTimeout(function() {
+                                                        location.href = './lista'
+                                                    }, 1000);
+
+
+                                                } else {
+                                                    toastr.error('Intenta de nuevo', '¡Error!')
+
+                                                    setTimeout(function() {
+                                                        location.href = './lista'
+                                                    }, 1000);
+                                                }
+                                            }
+                                        })
+
+
+
+                                    } else {
+                                        swal(`Debes de escribir el porqué`);
+
+                                    }
+                                });
+                        }
+                    })
+            })
+        </script>
         <script>
             $('#line_descripcion').summernote({
                 placeholder: 'Descripción del paquete',

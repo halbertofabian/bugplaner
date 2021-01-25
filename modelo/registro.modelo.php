@@ -123,4 +123,43 @@ class RegistrModelo
             $con = null;
         }
     }
+    public static function mdlMetaCumplida($rgt_id)
+    {
+        try {
+            //code...
+            $sql = "UPDATE   tbl_registros_rgt SET rgt_meta_estado	= 1 , rgt_fecha_actu = ? WHERE rgt_id = ? ";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, FECHA);
+            $pps->bindValue(2, $rgt_id);
+            $pps->execute();
+            return $pps->rowCount() > 0;
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+    public static function mdlMetaNoCumplida($rgt)
+    {
+        try {
+            //code...
+            $sql = "UPDATE   tbl_registros_rgt SET rgt_meta_estado	= 0 , rgt_fecha_actu = ?, rgt_nota = ? WHERE rgt_id = ? ";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, FECHA);
+            $pps->bindValue(2, $rgt['rgt_nota']);
+            $pps->bindValue(3, $rgt['rgt_id']);
+            $pps->execute();
+            return $pps->rowCount() > 0;
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
 }
