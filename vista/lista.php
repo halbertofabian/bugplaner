@@ -34,9 +34,10 @@
     foreach ($registros as $key => $value) :
     ?>
         <?php if ($value['rgt_recordatorio'] == 'Cada día') : ?>
+
             <div class=" mt-1 alert-btn alert alert-success" role="alert">
-                <strong><?php echo $value['rgt_descripcion'] ?></strong>
-                <p><?php echo 'Avance: '.$value['rgt_recordatorio']; ?></p>
+                <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
+                <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
@@ -45,12 +46,13 @@
                 <br>
                 <br>
             </div>
+
         <?php endif; ?>
 
         <?php if ($value['rgt_recordatorio'] == 'Cada semana') : ?>
             <div class=" mt-1 alert-btn alert alert-info" role="alert">
-                <strong><?php echo $value['rgt_descripcion'] ?></strong>
-                <p><?php echo 'Avance: '.$value['rgt_recordatorio']; ?></p>
+                <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
+                <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
@@ -62,8 +64,8 @@
 
         <?php if ($value['rgt_recordatorio'] == 'Cada Mes') : ?>
             <div class=" mt-1 alert-btn alert alert-warning" role="alert">
-                <strong><?php echo $value['rgt_descripcion'] ?></strong>
-                <p><?php echo 'Avance: '.$value['rgt_recordatorio']; ?></p>
+                <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
+                <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>
@@ -74,8 +76,8 @@
         <?php endif; ?>
         <?php if ($value['rgt_recordatorio'] == 'Cada Año') : ?>
             <div class=" mt-1 alert-btn alert alert-danger" role="alert">
-                <strong><?php echo $value['rgt_descripcion'] ?></strong>
-                <p><?php echo 'Avance: '.$value['rgt_recordatorio']; ?></p>
+                <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
+                <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
                 <?php if ($value['rgt_fecha_limite'] != "0000-00-00") : ?>
                     <p><?php echo 'Fecha limite: ' . $value['rgt_fecha_limite'] ?></p>
                 <?php endif; ?>

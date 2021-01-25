@@ -34,4 +34,15 @@ class RegistroControlador
             }
         }
     }
+    public function ctrAgregarTimeLine()
+    {
+        if (isset($_POST['btnAgregarTimeline'])) {
+            $_POST['line_fecha_registro'] = FECHA;
+            $registro = RegistrModelo::mdlAgregarTimeLine($_POST);
+            if ($registro) {
+                AppControlador::msj('success', '¡Muy bien!', 'Avance guardado con éxito', HTTP_HOST . 'time-line/' . $_POST['line_registro']);
+            } else {
+            }
+        }
+    }
 }
