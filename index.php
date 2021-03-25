@@ -122,6 +122,14 @@ require_once 'controlador/usuarios.controlador.php';
 
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="<?php echo HTTP_HOST . 'calendario' ?>">
+                                    <i class="fas fa-desktop"></i>
+                                    <p>Calendario</p>
+
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="<?php echo HTTP_HOST . 'salir' ?>">
                                     <i class="fas fa-exit"></i>
@@ -153,10 +161,13 @@ require_once 'controlador/usuarios.controlador.php';
                             $rutas[0] == 'lista' ||
                             $rutas[0] == 'salir' ||
                             $rutas[0] == 'avance' ||
-                            $rutas[0] == 'time-line'
+                            $rutas[0] == 'time-line' ||
+                            $rutas[0] == 'calendario'
                         ) {
 
                             include_once 'vista/' . $rutas[0] . '.php';
+                        } else {
+                            echo "ERROR 404";
                         }
                     } else {
                         include_once 'vista/dashboard.php';
@@ -199,10 +210,10 @@ require_once 'controlador/usuarios.controlador.php';
                                 <div class="form-group">
                                     <label for="rgt_recordatorio_h">Intervalo de avances</label>
                                     <select name="rgt_recordatorio_h" id="rgt_recordatorio_h" class="form-control">
-                                        <option>Cada día</option>
-                                        <option>Cada semana</option>
-                                        <option>Cada Mes</option>
-                                        <option>Cada Año</option>
+                                        <option>DIARIO</option>
+                                        <option>SEMANAL</option>
+                                        <option>MENSUAL</option>
+                                        <option>ANUAL</option>
                                     </select>
                                 </div>
 
@@ -228,10 +239,10 @@ require_once 'controlador/usuarios.controlador.php';
                                 <div class="form-group">
                                     <label for="rgt_recordatorio_p">Intervalo de avances</label>
                                     <select name="rgt_recordatorio_p" id="rgt_recordatorio_p" class="form-control">
-                                        <option>Cada día</option>
-                                        <option>Cada semana</option>
-                                        <option>Cada Mes</option>
-                                        <option>Cada Año</option>
+                                        <option>DIARIO</option>
+                                        <option>SEMANAL</option>
+                                        <option>MENSUAL</option>
+                                        <option>ANUAL</option>
                                     </select>
                                 </div>
 

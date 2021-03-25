@@ -162,4 +162,23 @@ class RegistrModelo
             $con = null;
         }
     }
+
+    public static function mdlConsultarPlaneacion($dft_tipo)
+    {
+        try {
+            //code...
+            $sql = "SELECT * FROM tbl_default_dft WHERE dft_tipo = ? ORDER BY dft_id ASC";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $dft_tipo);
+            $pps->execute();
+            return $pps->fetchAll();
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
 }
