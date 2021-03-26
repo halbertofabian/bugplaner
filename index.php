@@ -309,6 +309,7 @@ require_once 'controlador/usuarios.controlador.php';
 
 
         <script src="<?php echo HTTP_HOST  ?>assets/js/plugin/summernote-2/summernote-lite.min.js"></script>
+        <script src="<?php echo HTTP_HOST  ?>assets/js/main.js"></script>
 
         <script>
             $(".btnMetaCumplida").on("click", function() {
