@@ -66,6 +66,66 @@ class RegistrModelo
         }
     }
 
+    public static function mdlConsultaRegistroByTipo($rgt_usuario, $rgt_recordatorio)
+    {
+        try {
+            //code...
+            $sql = "SELECT * FROM tbl_registros_rgt WHERE rgt_usuario = ? AND rgt_recordatorio = ?  ORDER BY rgt_id DESC";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $rgt_usuario);
+            $pps->bindValue(2, $rgt_recordatorio);
+            $pps->execute();
+            return $pps->fetchAll();
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+
+    public static function mdlConsultarMiHistoria($hst_usuario)
+    {
+        try {
+            //code...
+            $sql = "SELECT * FROM tbl_hstoria_hst WHERE hst_usuario = ?";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $hst_usuario);
+            $pps->execute();
+            return $pps->fetch();
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+
+
+    public static function mdlEditarMiHistoria($hst_usuario, $hst_text)
+    {
+        try {
+            //code...
+            $sql = "UPDATE tbl_hstoria_hst SET hst_text = ?   WHERE hst_usuario = ?";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $hst_text);
+            $pps->bindValue(2, $hst_usuario);
+            $pps->execute();
+            return $pps->rowCount() > 0;
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+
     public static function mdlConsultaRegistroById($rgt_usuario, $rgt_id)
     {
         try {

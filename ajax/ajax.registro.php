@@ -90,3 +90,44 @@ if (isset($_POST['btnselect'])) {
 
     endforeach;
 }
+
+
+if (isset($_POST['btnselectUsr'])) {
+    if (isset($_POST['dft_tipo'])) {
+
+        $plan = RegistrModelo::mdlConsultaRegistroByTipo($_SESSION['session_usr']['usr_id'], $_POST['dft_tipo']);
+
+        if ($_POST['dft_tipo'] == "SEMANAL") {
+            $class = "alert-warning";
+        } elseif ($_POST['dft_tipo'] == "DIARIO") {
+            $class = "alert-success";
+        } elseif ($_POST['dft_tipo'] == "MENSUAL") {
+            $class = "alert-purple";
+        } elseif ($_POST['dft_tipo'] == "ANUAL") {
+            $class = "alert-danger";
+        }
+    } else {
+        $plan = RegistrModelo::mdlConsultaRegistroByTipo($_SESSION['session_usr']['usr_id'], 'DIARIO');
+        $class = "alert-success";
+    }
+
+    foreach ($plan as $key => $dft) :
+
+        echo '  <div class="col-12">
+
+                <div class="alert ' .  $class . ' " role="alert">
+                    <span>' . $dft['rgt_descripcion'] . '</span>
+                </div>
+
+
+
+            </div>';
+
+    endforeach;
+}
+
+
+if (isset($_POST['btnguardarMiHistoria'])) {
+    $res = RegistrModelo::mdlEditarMiHistoria($_SESSION['session_usr']['usr_id'], $_POST['hst_text']);
+    echo json_encode($res, true);
+}

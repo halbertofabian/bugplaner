@@ -33,7 +33,7 @@
 
     foreach ($registros as $key => $value) :
     ?>
-        <?php if ($value['rgt_recordatorio'] == 'Cada día') : ?>
+        <?php if ($value['rgt_recordatorio'] == 'DIARIO') : ?>
 
             <div class=" mt-1 alert-btn alert alert-success" role="alert">
                 <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
@@ -68,7 +68,7 @@
 
         <?php endif; ?>
 
-        <?php if ($value['rgt_recordatorio'] == 'Cada semana') : ?>
+        <?php if ($value['rgt_recordatorio'] == 'SEMANAL') : ?>
             <div class=" mt-1 alert-btn alert alert-info" role="alert">
                 <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
                 <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
@@ -99,7 +99,7 @@
             </div>
         <?php endif; ?>
 
-        <?php if ($value['rgt_recordatorio'] == 'Cada Mes') : ?>
+        <?php if ($value['rgt_recordatorio'] == 'MENSUAL') : ?>
             <div class=" mt-1 alert-btn alert alert-warning" role="alert">
                 <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
                 <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
@@ -129,7 +129,7 @@
                 <br>
             </div>
         <?php endif; ?>
-        <?php if ($value['rgt_recordatorio'] == 'Cada Año') : ?>
+        <?php if ($value['rgt_recordatorio'] == 'ANUAL') : ?>
             <div class=" mt-1 alert-btn alert alert-danger" role="alert">
                 <a href="<?php echo HTTP_HOST . 'time-line/' . $value['rgt_id'] ?>"> <strong><?php echo $value['rgt_descripcion'] ?></strong></a>
                 <p><?php echo 'Avance: ' . $value['rgt_recordatorio']; ?></p>
