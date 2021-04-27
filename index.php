@@ -178,7 +178,8 @@ require_once 'controlador/usuarios.controlador.php';
                 </div>
                 <!-- Footer -->
 
-                <a class='flotante btn btn-dark' data-toggle="modal" data-target="#exampleModal" href='#'>+</a>
+                <br><br><br>
+                <a class='flotante btn btn-dark mt-5' data-toggle="modal" data-target="#exampleModal" href='#'>+</a>
 
             </div>
 
