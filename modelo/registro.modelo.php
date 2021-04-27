@@ -126,6 +126,50 @@ class RegistrModelo
         }
     }
 
+    public static function mdlEditarMiMeta($hst_usuario, $hst_meta)
+    {
+        try {
+            //code...
+            $sql = "UPDATE tbl_hstoria_hst SET hst_meta = ?   WHERE hst_usuario = ?";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $hst_meta);
+            $pps->bindValue(2, $hst_usuario);
+            $pps->execute();
+            return $pps->rowCount() > 0;
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+
+    public static function mdlEditarMiFilosofia($hst_usuario, $hst_filosofia)
+    {
+        try {
+            //code...
+            $sql = "UPDATE tbl_hstoria_hst SET hst_filosofia = ?   WHERE hst_usuario = ?";
+            $con = Conexion::conectar();
+            $pps = $con->prepare($sql);
+            $pps->bindValue(1, $hst_filosofia);
+            $pps->bindValue(2, $hst_usuario);
+            $pps->execute();
+            return $pps->rowCount() > 0;
+        } catch (PDOException $th) {
+            //throw $th;
+            return false;
+        } finally {
+            $pps = null;
+            $con = null;
+        }
+    }
+
+    
+
+    
+
     public static function mdlConsultaRegistroById($rgt_usuario, $rgt_id)
     {
         try {

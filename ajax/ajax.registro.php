@@ -131,3 +131,13 @@ if (isset($_POST['btnguardarMiHistoria'])) {
     $res = RegistrModelo::mdlEditarMiHistoria($_SESSION['session_usr']['usr_id'], $_POST['hst_text']);
     echo json_encode($res, true);
 }
+if (isset($_POST['btnguardarMiMeta'])) {
+    $res = RegistrModelo::mdlEditarMiMeta($_SESSION['session_usr']['usr_id'], $_POST['hst_meta']);
+    echo json_encode($res, true);
+}
+
+
+if (isset($_POST['btnguardarMiFilosofia'])) {
+    $res = RegistrModelo::mdlEditarMiFilosofia($_SESSION['session_usr']['usr_id'], $_POST['hst_filosofia']);
+    echo json_encode($res, true);
+}
